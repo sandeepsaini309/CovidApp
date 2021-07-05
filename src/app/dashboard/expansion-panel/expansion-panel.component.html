@@ -1,0 +1,68 @@
+<mat-accordion class="example-headers-align">
+  <!-- 1 -->
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Symptoms </mat-panel-title>
+      <mat-panel-description>
+        Covid-19 Symptoms May Include
+        <mat-icon>sick</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- images display in this row -->
+    <div class="row">
+      <div
+        class="col-md-6 col-lg-4 p-3 d-flex justify-content-center"
+        *ngFor="let symImg of symptomsImg"
+      >
+        <div class="card border-0 text-center" style="max-width: 18rem">
+          <img
+            class="card-img-top mx-auto rounded-circle"
+            [src]="symImg.img"
+            style="max-width: 170px"
+            alt=""
+          />
+          <div class="card-body">
+            <p class="mat-subheading-1">{{ symImg.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <!-- 2 -->
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Protect Yourself </mat-panel-title>
+      <mat-panel-description>
+        The Best Ways to Protect Yourself
+        <mat-icon>6_ft_apart</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- images display in this row -->
+    <div class="row">
+      <div
+        class="col-md-6 col-lg-4 p-3 d-flex justify-content-center"
+        *ngFor="let proImg of protectImg"
+      >
+        <div class="card border-0 text-center" style="max-width: 18rem">
+          <img
+            class="card-img-top mx-auto rounded-circle"
+            [src]="proImg.img"
+            style="max-width: 170px"
+            alt=""
+          />
+          <div class="card-body">
+            <p class="mat-subheading-1">{{ proImg.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-action-row>
+      <button mat-button color="accent" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">End</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

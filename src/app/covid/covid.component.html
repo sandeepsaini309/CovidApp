@@ -1,0 +1,203 @@
+<!-- sub head -->
+<section class="container-fluid p-0">
+  <mat-toolbar>
+    <span>Covid Updates</span>
+  </mat-toolbar>
+</section>
+
+<!-- PreLoder -->
+<figure *ngIf="!isFeching" class="container-fluid p-0">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</figure>
+
+<main [hidden]="!isFeching">
+  <!-- covid overview -->
+  <figure class="container-fluid p-4">
+    <h2 class="mat-subheading-2">COVID-19 Cases Overview</h2>
+    <p class="mat-subheading-1">Updated Every 24 Hours</p>
+
+    <div class="row text-center text-md-left">
+      <!-- Confirmed -->
+      <div class="col-md-6">
+        <div class="card myPurple text-light shadow-sm myRound border-0 mb-3">
+          <div class="card-body">
+            <h1 class="card-title mat-display-2 mb-0">
+              {{ covidTotal.cases }}
+            </h1>
+            <p class="card-subtitle mat-title">
+              <small>
+                <i class="fas fa-arrow-up"></i>
+                {{ covidTotal.todayCases }}
+              </small>
+            </p>
+            <p class="card-text mat-subheading-2">Confirmed</p>
+          </div>
+        </div>
+      </div>
+      <!-- Active -->
+      <div class="col-md-6">
+        <div class="card myBlue text-light shadow-sm myRound border-0 mb-3">
+          <div class="card-body">
+            <h1 class="card-title mat-display-2 mb-0">
+              {{ covidTotal.active }}
+            </h1>
+            <p class="card-subtitle mat-title">
+              <small>
+                <i class="fas fa-arrow-up"></i>
+                {{ covidTotal.todayActive }}
+              </small>
+            </p>
+            <p class="card-text mat-subheading-2">Active</p>
+          </div>
+        </div>
+      </div>
+      <!-- Recovered -->
+      <div class="col-md-6">
+        <div class="card myGreen text-light shadow-sm myRound border-0 mb-3">
+          <div class="card-body">
+            <h1 class="card-title mat-display-2 mb-0">
+              {{ covidTotal.recovered }}
+            </h1>
+            <p class="card-subtitle mat-title">
+              <small>
+                <i class="fas fa-arrow-up"></i>
+                {{ covidTotal.todayRecovered }}
+              </small>
+            </p>
+            <p class="card-text mat-subheading-2">Recovered</p>
+          </div>
+        </div>
+      </div>
+      <!-- Deaths -->
+      <div class="col-md-6">
+        <div class="card myRed text-light shadow-sm myRound border-0 mb-3">
+          <div class="card-body">
+            <h1 class="card-title mat-display-2 mb-0">
+              {{ covidTotal.deaths }}
+            </h1>
+            <p class="card-subtitle mat-title">
+              <small>
+                <i class="fas fa-arrow-up"></i>
+                {{ covidTotal.todayDeaths }}
+              </small>
+            </p>
+            <p class="card-text mat-subheading-2">Deaths</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Cases over time Chart -->
+  <section class="container-fluid p-4 d-none d-md-block">
+    <h2 class="mat-subheading-2">Cases Over Time</h2>
+
+    <div class="row">
+      <div class="col">
+        <canvas
+          baseChart
+          [datasets]="ChartData"
+          [labels]="ChartLabels"
+          [options]="ChartOptions"
+          [legend]="ChartLegend"
+          [chartType]="ChartType"
+        >
+        </canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- covid tracker Table -->
+  <section class="container-fluid p-4">
+    <h2 class="mat-subheading-2">All State / UTs</h2>
+
+    <mat-form-field color="accent">
+      <mat-label>Search</mat-label>
+      <input
+        (keyup)="applyFilter($event.target.value)"
+        matInput
+        placeholder="Type here"
+      />
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- state Column -->
+        <ng-container matColumnDef="state">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>State / UT</th>
+          <td mat-cell *matCellDef="let element">{{ element.state }}</td>
+        </ng-container>
+
+        <!-- active Column -->
+        <ng-container matColumnDef="active">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.active }}
+          </td>
+        </ng-container>
+
+        <!-- todayAactive Column -->
+        <ng-container matColumnDef="todayActive">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>TodayActive</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.todayActive }}
+          </td>
+        </ng-container>
+
+        <!-- confirmed Column -->
+        <ng-container matColumnDef="cases">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Confirmed</th>
+          <td mat-cell *matCellDef="let element">{{ element.cases }}</td>
+        </ng-container>
+
+        <!-- todaysConfirmed Column -->
+        <ng-container matColumnDef="todayCases">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            TodayConfirmed
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.todayCases }}</td>
+        </ng-container>
+
+        <!-- recovered Column -->
+        <ng-container matColumnDef="recovered">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Recovered</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.recovered }}
+          </td>
+        </ng-container>
+
+        <!-- todaysRecovered Column -->
+        <ng-container matColumnDef="todayRecovered">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            TodayRecovered
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.todayRecovered }}
+          </td>
+        </ng-container>
+
+        <!-- deaths Column -->
+        <ng-container matColumnDef="deaths">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Deaths</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.deaths }}
+          </td>
+        </ng-container>
+
+        <!-- todaysDeaths Column -->
+        <ng-container matColumnDef="todayDeaths">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>TodayDeaths</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.todayDeaths }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </section>
+</main>

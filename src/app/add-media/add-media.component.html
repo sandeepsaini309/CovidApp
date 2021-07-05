@@ -1,0 +1,153 @@
+<!-- sub head -->
+<section class="container-fluid p-0">
+  <mat-toolbar>
+    <span>Manage Media</span>
+  </mat-toolbar>
+</section>
+
+<section class="container-fluid p-4">
+  <h2 class="mat-subheading-2">Add Trending Videos</h2>
+  <!-- Upload section trending -->
+  <div class="row">
+    <!--url form -->
+    <div class="col-md-6">
+      <mat-form-field
+        class="w-100"
+        [formGroup]="trendingForm"
+        (ngSubmit)="onSubmitTrend()"
+        appearance="outline"
+      >
+        <mat-label>Url</mat-label>
+        <input matInput formControlName="url" />
+        <mat-hint>Only src of iframe embed link.</mat-hint>
+      </mat-form-field>
+    </div>
+    <!-- caption form -->
+    <div class="col-md-6">
+      <mat-form-field
+        class="w-100"
+        [formGroup]="trendingForm"
+        (ngSubmit)="onSubmitTrend()"
+        appearance="outline"
+      >
+        <mat-label>Caption</mat-label>
+        <input matInput formControlName="caption" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 mb-3">
+      <mat-toolbar class="d-flex justify-content-end">
+        <button
+          mat-raised-button
+          type="submit"
+          [disabled]="!trendingForm.valid"
+          (click)="onSubmitTrend()"
+          color="primary"
+        >
+          Add
+        </button>
+        &nbsp;
+        <button mat-raised-button (click)="onResetTrend()" color="accent">
+          Reset
+        </button>
+      </mat-toolbar>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid p-4">
+  <h2 class="mat-subheading-2">Add Learning Videos</h2>
+  <!-- upload section learning -->
+  <div class="row">
+    <!--url form -->
+    <div class="col-md-6">
+      <mat-form-field
+        class="w-100"
+        [formGroup]="learningForm"
+        (ngSubmit)="onSubmitLearn()"
+        appearance="outline"
+      >
+        <mat-label>Url</mat-label>
+        <input matInput formControlName="url" />
+        <mat-hint>Only src of iframe embed link.</mat-hint>
+      </mat-form-field>
+    </div>
+    <!-- caption form -->
+    <div class="col-md-6">
+      <mat-form-field
+        class="w-100"
+        [formGroup]="learningForm"
+        (ngSubmit)="onSubmitLearn()"
+        appearance="outline"
+      >
+        <mat-label>Caption</mat-label>
+        <input matInput formControlName="caption" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 mb-3">
+      <mat-toolbar class="d-flex justify-content-end">
+        <button
+          mat-raised-button
+          type="submit"
+          [disabled]="!learningForm.valid"
+          (click)="onSubmitLearn()"
+          color="primary"
+        >
+          Add
+        </button>
+        &nbsp;
+        <button mat-raised-button (click)="onResetLearn()" color="accent">
+          Reset
+        </button>
+      </mat-toolbar>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid p-4">
+  <h2 class="mat-subheading-2">Add Immunity Videos</h2>
+  <!-- upload section immunity -->
+  <div class="row">
+    <!--url form -->
+    <div class="col-md-6">
+      <mat-form-field
+        class="w-100"
+        [formGroup]="immunityForm"
+        (ngSubmit)="onSubmitImmunity()"
+        appearance="outline"
+      >
+        <mat-label>Url</mat-label>
+        <input matInput formControlName="url" />
+        <mat-hint>Only src of iframe embed link.</mat-hint>
+      </mat-form-field>
+    </div>
+    <!-- caption form -->
+    <div class="col-md-6">
+      <mat-form-field
+        class="w-100"
+        [formGroup]="immunityForm"
+        (ngSubmit)="onSubmitImmunity()"
+        appearance="outline"
+      >
+        <mat-label>Caption</mat-label>
+        <input matInput formControlName="caption" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 mb-3">
+      <mat-toolbar class="d-flex justify-content-end">
+        <button
+          mat-raised-button
+          type="submit"
+          [disabled]="!immunityForm.valid"
+          (click)="onSubmitImmunity()"
+          color="primary"
+        >
+          Add
+        </button>
+        &nbsp;
+        <button mat-raised-button (click)="onResetImmunity()" color="accent">
+          Reset
+        </button>
+      </mat-toolbar>
+    </div>
+  </div>
+</section>

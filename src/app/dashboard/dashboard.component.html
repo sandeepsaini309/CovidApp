@@ -1,0 +1,194 @@
+<!-- sub head -->
+<section class="container-fluid p-0">
+  <mat-toolbar>
+    <span>Dashboard</span>
+  </mat-toolbar>
+</section>
+
+<!-- PreLoder -->
+<figure *ngIf="!isFeching" class="container-fluid p-0">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</figure>
+
+<main *ngIf="isFeching">
+  <!-- covid overview -->
+  <figure class="container-fluid p-4">
+    <h2 class="mat-subheading-2">COVID-19 Cases Overview</h2>
+    <p class="mat-subheading-1">Updated Every 24 Hours</p>
+
+    <div class="row text-center text-md-left">
+      <!-- Confirmed -->
+      <div class="col-md-6">
+        <div class="card myPurple text-light shadow-sm myRound border-0 mb-3">
+          <div class="card-body">
+            <h1 class="card-title mat-display-2 mb-0">
+              {{ covidTotal.cases }}
+            </h1>
+            <p class="card-subtitle mat-title">
+              <small>
+                <i class="fas fa-arrow-up"></i>
+                {{ covidTotal.todayCases }}
+              </small>
+            </p>
+            <p class="card-text mat-subheading-2">Confirmed</p>
+          </div>
+        </div>
+      </div>
+      <!-- Active -->
+      <div class="col-md-6">
+        <div class="card myBlue text-light shadow-sm myRound border-0 mb-3">
+          <div class="card-body">
+            <h1 class="card-title mat-display-2 mb-0">
+              {{ covidTotal.active }}
+            </h1>
+            <p class="card-subtitle mat-title">
+              <small>
+                <i class="fas fa-arrow-up"></i>
+                {{ covidTotal.todayActive }}
+              </small>
+            </p>
+            <p class="card-text mat-subheading-2">Active</p>
+          </div>
+        </div>
+      </div>
+      <!-- Recovered -->
+      <div class="col-md-6">
+        <div class="card myGreen text-light shadow-sm myRound border-0 mb-3">
+          <div class="card-body">
+            <h1 class="card-title mat-display-2 mb-0">
+              {{ covidTotal.recovered }}
+            </h1>
+            <p class="card-subtitle mat-title">
+              <small>
+                <i class="fas fa-arrow-up"></i>
+                {{ covidTotal.todayRecovered }}
+              </small>
+            </p>
+            <p class="card-text mat-subheading-2">Recovered</p>
+          </div>
+        </div>
+      </div>
+      <!-- Deaths -->
+      <div class="col-md-6">
+        <div class="card myRed text-light shadow-sm myRound border-0 mb-3">
+          <div class="card-body">
+            <h1 class="card-title mat-display-2 mb-0">
+              {{ covidTotal.deaths }}
+            </h1>
+            <p class="card-subtitle mat-title">
+              <small>
+                <i class="fas fa-arrow-up"></i>
+                {{ covidTotal.todayDeaths }}
+              </small>
+            </p>
+            <p class="card-text mat-subheading-2">Deaths</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- Coronavirus  at a Glance -->
+  <section class="container-fluid p-4">
+    <h2 class="mat-subheading-2">Coronavirus at a Glance</h2>
+    <app-expansion-panel></app-expansion-panel>
+  </section>
+
+  <!-- trending video -->
+  <figure class="container-fluid p-4">
+    <h2 class="mat-subheading-2">Trending Now</h2>
+
+    <!-- video display here -->
+    <div class="row">
+      <div class="col-md-4" *ngFor="let tVid of trendVid">
+        <div class="card p-0 mb-3 border-0 bg-transparent myRound">
+          <iframe
+            class="e2e-iframe-trusted-src card-img-top myRound shadow-sm"
+            width="100%"
+            height="100%"
+            [src]="tVid.url | safeUrl"
+          ></iframe>
+          <div class="card-body p-1">
+            <p class="card-text mat-subheading-1">{{ tVid.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button mat-button [routerLink]="['/media']" color="primary">
+      See More
+    </button>
+  </figure>
+
+  <!-- useful resources -->
+  <!-- <section class="container-fluid p-4">
+    <h2 class="mat-subheading-2">Useful Resources</h2>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card border-0 myRound shadow-sm">
+          <div class="card-body">
+            <div class="card-title mat-subheading-1">
+              Everything you need to know about CovidApp
+            </div>
+            <button
+              mat-button
+              [routerLink]="['/dashboard']"
+              class="p-0"
+              color="primary"
+            >
+              See More
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-0 myRound shadow-sm">
+          <div class="card-body">
+            <div class="card-title mat-subheading-1">
+              Laboratories with COVID-19 testing facility
+            </div>
+            <button
+              mat-button
+              [routerLink]="['/dashboard']"
+              class="p-0"
+              color="primary"
+            >
+              See More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Donates -->
+  <figure class="container-fluid p-4">
+    <h2 class="mat-subheading-2">Donates</h2>
+    <div class="card border-0 shadow-sm myRound text-center">
+      <div class="card-body">
+        <img
+          class="img-fluid mb-4"
+          src="../../assets/img/logo_pm_care_fund.png"
+          alt="logo pm care fund"
+        />
+        <p class="mat-h3 mb-3 mx-auto" style="max-width: 60rem">
+          PM-CARES fund is aimed at strengthening the fight against COVID-19. It
+          will further availability of quality treatment and encourage research
+          on ways to beat Coronavirus. I urge people from all walks of life to
+          contribute to PM-CARES. Together, let's solve challenges of the
+          present and protect the future.
+        </p>
+
+        <a
+          mat-raised-button
+          color="primary"
+          href="https://pmcares.gov.in/en"
+          target="_blank"
+        >
+          Donate via PM Cares Website
+        </a>
+      </div>
+    </div>
+  </figure>
+</main>

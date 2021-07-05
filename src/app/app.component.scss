@@ -1,0 +1,19 @@
+mat-sidenav-container {
+  height: 90.2vh;
+}
+mat-sidenav {
+  width: 250px;
+}
+mat-toolbar-row,
+mat-toolbar-single-row {
+  height: 64px;
+}
+.myActive {
+  background-color: #37479f;
+}
+.imgBox {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+}

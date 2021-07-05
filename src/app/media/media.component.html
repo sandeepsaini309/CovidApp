@@ -1,0 +1,91 @@
+<!-- sub head -->
+<section class="container-fluid p-0">
+  <mat-toolbar>
+    <span>Media</span>
+  </mat-toolbar>
+</section>
+
+<!-- PreLoder -->
+<figure *ngIf="!isFeching" class="container-fluid p-0">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</figure>
+
+<main [hidden]="!isFeching">
+  <!-- trending video -->
+  <figure class="container-fluid p-4">
+    <h2 class="mat-subheading-2">Trending Now</h2>
+
+    <!-- video display here -->
+    <div class="row">
+      <div class="col-md-4" *ngFor="let tVid of trendVid">
+        <div class="card p-0 mb-3 border-0 bg-transparent myRound">
+          <iframe
+            class="e2e-iframe-trusted-src card-img-top myRound shadow-sm"
+            width="100%"
+            height="100%"
+            [src]="tVid.url | safeUrl"
+          ></iframe>
+          <div class="card-body p-1">
+            <p class="card-text mat-subheading-1">{{ tVid.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button mat-button [routerLink]="['/media']" color="primary">
+      See More
+    </button>
+  </figure>
+
+  <!-- learning videos -->
+  <figure class="container-fluid p-4">
+    <h2 class="mat-subheading-2">Learnings</h2>
+
+    <!-- video display here -->
+    <div class="row">
+      <div class="col-md-4" *ngFor="let lVid of learnVid">
+        <div class="card p-0 mb-3 border-0 bg-transparent myRound">
+          <iframe
+            class="e2e-iframe-trusted-src card-img-top myRound shadow-sm"
+            width="100%"
+            height="100%"
+            [src]="lVid.url | safeUrl"
+          ></iframe>
+          <div class="card-body p-1">
+            <p class="card-text mat-subheading-1">{{ lVid.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button mat-button [routerLink]="['/media']" color="primary">
+      See More
+    </button>
+  </figure>
+
+  <!-- immunity videos -->
+  <figure class="container-fluid p-4">
+    <h2 class="mat-subheading-2">Immunity</h2>
+
+    <!-- video display here -->
+    <div class="row">
+      <div class="col-md-4" *ngFor="let iVid of immunityVid">
+        <div class="card p-0 mb-3 border-0 bg-transparent myRound">
+          <iframe
+            class="e2e-iframe-trusted-src card-img-top myRound shadow-sm"
+            width="100%"
+            height="100%"
+            [src]="iVid.url | safeUrl"
+          ></iframe>
+          <div class="card-body p-1">
+            <p class="card-text mat-subheading-1">{{ iVid.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button mat-button [routerLink]="['/media']" color="primary">
+      See More
+    </button>
+  </figure>
+</main>

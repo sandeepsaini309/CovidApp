@@ -1,0 +1,71 @@
+<section class="container-fluid p-4">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card border-0 shadow-sm rounded-lg text-center">
+        <div class="card-body">
+          <h1 class="mat-display-1 mb-3">Covid Application</h1>
+          <p class="mat-h3 mb-5">Designed and Developed by Sandeep Saini</p>
+
+          <!-- Form -->
+          <form action="">
+            <div class="mb-3">
+              <mat-form-field
+                class="w-100"
+                [formGroup]="LoginForm"
+                (ngSubmit)="onSubmit()"
+                appearance="outline"
+              >
+                <mat-label>Login Id</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="id"
+                  placeholder="Login Id"
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="mb-3">
+              <mat-form-field
+                class="w-100"
+                [formGroup]="LoginForm"
+                (ngSubmit)="onSubmit()"
+                appearance="outline"
+              >
+                <mat-label>Password</mat-label>
+                <input
+                  type="password"
+                  matInput
+                  formControlName="password"
+                  placeholder="Password"
+                />
+              </mat-form-field>
+            </div>
+
+            <!-- logIn Later btn -->
+            <button
+              type="button"
+              class="mb-2"
+              mat-raised-button
+              color="accent"
+              (click)="logLater()"
+            >
+              LogIn Later
+            </button>
+            &nbsp;
+            <!-- logIn btn -->
+            <button
+              type="button"
+              mat-raised-button
+              (click)="onSubmit()"
+              [disabled]="!LoginForm.valid"
+              color="primary"
+            >
+              LogIn
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
