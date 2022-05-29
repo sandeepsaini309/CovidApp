@@ -1,23 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import "~@angular/material/theming";
 
 // Define a custom typography config that overrides the font-family as well as the
 // `headlines` and `body-1` levels.
-$custom-typography: mat-typography-config(
+$custom-typography: mat.define-typography-config(
   $font-family: "Poppins, sans-serif",
 );
 // Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
-@include mat-base-typography($custom-typography);
+@include mat.typography-hierarchy($custom-typography);
 
 // Override typography for a specific Angular Material components.
-@include mat-checkbox-typography($custom-typography);
+@include mat.checkbox-typography($custom-typography);
 
 // Override typography for all Angular Material, including mat-base-typography and all components.
-@include angular-material-typography($custom-typography);
+@include mat.all-component-typographies($custom-typography);
 
 // Override the typography in the core CSS.
-@include mat-core($custom-typography);
+@include mat.core($custom-typography);
 
 html,
 body {
