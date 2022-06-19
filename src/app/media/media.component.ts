@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { MediaService } from '../services/media.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MediaService } from '../services/media.service';
   exportAs: 'ngForm',
 })
 export class MediaComponent implements OnInit {
-  constructor(private media: MediaService, private fb: FormBuilder) {}
+  constructor(private media: MediaService, private fb: UntypedFormBuilder) {}
 
   public isFeching: boolean;
   ngOnInit() {

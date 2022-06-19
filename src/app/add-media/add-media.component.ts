@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { MediaService } from '../services/media.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { MediaService } from '../services/media.service';
   styleUrls: ['./add-media.component.scss'],
 })
 export class AddMediaComponent implements OnInit {
-  constructor(private media: MediaService, private fb: FormBuilder) {}
+  constructor(private media: MediaService, private fb: UntypedFormBuilder) {}
 
   ngOnInit() {}
 
