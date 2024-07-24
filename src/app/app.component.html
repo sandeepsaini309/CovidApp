@@ -1,11 +1,7 @@
 <!-- HEADER -->
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-    >
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>
     <p class="mat-headline m-0">CovidApp</p>
@@ -22,17 +18,12 @@
 <!-- SIDENAV -->
 <mat-sidenav-container>
   <!-- [opened]="screenWidth > 840" used before in mat-sidenav -->
-  <mat-sidenav
-    class="my_primary"
-    [opened]="screenWidth > 840"
-    [mode]="screenWidth > 840 ? 'side' : 'over'"
-    #sidenav
-  >
+  <mat-sidenav class="my_primary" [opened]="screenWidth > 840" [mode]="screenWidth > 840 ? 'side' : 'over'" #sidenav>
     <!-- profile -->
     <div class="card bg-transparent border-0 text-center">
       <div class="card-body">
         <div class="imgBox mx-auto">
-          <img class="card-img" src="../assets/img/sandeep1.jpg" />
+          <img class="card-img" src="assets/img/sandeep1.jpg" />
         </div>
         <p class="mat-headline text-light">Sandeep Saini</p>
       </div>
@@ -52,11 +43,7 @@
       </mat-list-option> -->
 
       <!-- Dashboard -->
-      <mat-list-option
-        class="text-light"
-        [routerLink]="['/dashboard']"
-        routerLinkActive="myActive"
-      >
+      <mat-list-option class="text-light" [routerLink]="['/dashboard']" routerLinkActive="myActive">
         <div class="d-flex">
           <span>Dashboard</span>
           <span class="example-spacer"></span>
@@ -65,11 +52,7 @@
       </mat-list-option>
 
       <!-- Media -->
-      <mat-list-option
-        class="text-light"
-        [routerLink]="['/media']"
-        routerLinkActive="myActive"
-      >
+      <mat-list-option class="text-light" [routerLink]="['/media']" routerLinkActive="myActive">
         <div class="d-flex">
           <span>Media</span>
           <span class="example-spacer"></span>
@@ -78,11 +61,7 @@
       </mat-list-option>
 
       <!-- Add Media -->
-      <mat-list-option
-        class="text-light"
-        [routerLink]="['/addMedia']"
-        routerLinkActive="myActive"
-      >
+      <mat-list-option class="text-light" [routerLink]="['/addMedia']" routerLinkActive="myActive">
         <div class="d-flex">
           <span>Add Media</span>
           <span class="example-spacer"></span>
@@ -91,11 +70,7 @@
       </mat-list-option>
 
       <!-- Covid Updates -->
-      <mat-list-option
-        class="text-light"
-        [routerLink]="['/covid']"
-        routerLinkActive="myActive"
-      >
+      <mat-list-option class="text-light" [routerLink]="['/covid']" routerLinkActive="myActive">
         <div class="d-flex">
           <span>Covid Updates</span>
           <span class="example-spacer"></span>
@@ -104,11 +79,7 @@
       </mat-list-option>
 
       <!-- Call Helpline -->
-      <mat-list-option
-        class="text-light"
-        [routerLink]="['/helpline']"
-        routerLinkActive="myActive"
-      >
+      <mat-list-option class="text-light" [routerLink]="['/helpline']" routerLinkActive="myActive">
         <div class="d-flex">
           <span>Call Helpline (1075)</span>
           <span class="example-spacer"></span>
