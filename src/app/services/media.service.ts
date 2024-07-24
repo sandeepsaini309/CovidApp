@@ -78,17 +78,17 @@ export class MediaService {
   getSymptoms() {
     return [
       {
-        img: '../assets/img/sym/congestion and runny nose.jpg',
+        img: 'assets/img/sym/congestion and runny nose.jpg',
         caption: 'Congestion or runny nose',
       },
-      { img: '../assets/img/sym/coughing.png', caption: 'Cough' },
-      { img: '../assets/img/sym/fever.png', caption: 'Fever or chills' },
+      { img: 'assets/img/sym/coughing.png', caption: 'Cough' },
+      { img: 'assets/img/sym/fever.png', caption: 'Fever or chills' },
       {
-        img: '../assets/img/sym/jhmneckache.png',
+        img: 'assets/img/sym/jhmneckache.png',
         caption: 'Muscle or body aches',
       },
       {
-        img: '../assets/img/sym/breathing difficulty.png',
+        img: 'assets/img/sym/breathing difficulty.png',
         caption: 'Shortness of breath or difficulty breathing',
       },
     ];
@@ -96,35 +96,35 @@ export class MediaService {
   getProtect() {
     return [
       {
-        img: '../assets/img/protect/handwashing.png',
+        img: 'assets/img/protect/handwashing.png',
         caption:
           'Frequently wash your hands with soap and water, or use a hand sanitizer with at least 60% alcohol.',
       },
       {
-        img: '../assets/img/protect/face mask cropped.jpg',
+        img: 'assets/img/protect/face mask cropped.jpg',
         caption:
           'Wear a cloth face mask when in public to prevent the spread of the virus.',
       },
       {
-        img: '../assets/img/protect/sneezing tissue.png',
+        img: 'assets/img/protect/sneezing tissue.png',
         caption:
           'Cough or sneeze into a tissue or bent elbow. Throw the tissue in the trash.',
       },
       {
-        img: '../assets/img/protect/distance.png',
+        img: 'assets/img/protect/distance.png',
         caption: 'Stay 6 feet away from others.',
       },
       {
-        img: '../assets/img/protect/sleeping at home.png',
+        img: 'assets/img/protect/sleeping at home.png',
         caption:
           'If you feel sick, stay home and contact your health care provider.',
       },
       {
-        img: '../assets/img/protect/coughing hand.png',
+        img: 'assets/img/protect/coughing hand.png',
         caption: 'Do not touch your face without washing your hands first.',
       },
       {
-        img: '../assets/img/protect/disinfect.png',
+        img: 'assets/img/protect/disinfect.png',
         caption: 'Clean and disinfect frequently touched objects and surfaces.',
       },
     ];
